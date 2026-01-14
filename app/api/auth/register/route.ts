@@ -3,7 +3,7 @@ import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  console.log("Request recieved for registering a user");
+  // console.log("Request recieved for registering a user");
   try {
     const { email, password } = await request.json();
     if (!email || !password) {
