@@ -9,7 +9,7 @@ export default withAuth(
     callbacks: {
       authorized: ({ req, token }) => {
         const { pathname } = req.nextUrl;
-        console.log("pathname", pathname);
+        // console.log("pathname", pathname);
 
         // allow auth related routes
         if (

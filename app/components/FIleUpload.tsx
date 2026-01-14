@@ -66,7 +66,7 @@ export default function FileUpload({
   const validateFile = (file: File) => {
     if (fileType === "video") {
       if (!file.type.startsWith("video/")) {
-        console.log("Please upload a video");
+        // console.log("Please upload a video");
         return "Please upload a video";
       }
     } else {
@@ -79,12 +79,12 @@ export default function FileUpload({
     }
 
     if (file.size > 10_000_000) {
-      console.log(
-        `File size should be less than: ${10_000_000}. File uploaded by you has size: ${
-          file.size
-        }`
-      );
-      return `File size should be less than: ${1 * 100 * 100}`;
+      // console.log(
+      //   `File size should be less than: ${10_000_000}. File uploaded by you has size: ${
+      //     file.size
+      //   }`
+      // );
+      return `File size should be less than: ${10_000_000}`;
     }
 
     return null;
@@ -147,7 +147,7 @@ export default function FileUpload({
         // Abort signal to allow cancellation of the upload if needed.
         abortSignal: abortController.signal,
       });
-      console.log("Upload response:", uploadResponse);
+      // console.log("Upload response:", uploadResponse);
       onSuccess(uploadResponse);
     } catch (error) {
       // Handle specific error types provided by the ImageKit SDK.

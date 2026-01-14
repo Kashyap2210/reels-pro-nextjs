@@ -11,13 +11,12 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = async () => {
-    console.log(1);
     const res = await signIn("credentials", {
       email,
       password,
       redirect: false,
     });
-    console.log("login res", res);
+    // console.log("login res", res);
 
     if (res?.error) {
       setError(res.error);
