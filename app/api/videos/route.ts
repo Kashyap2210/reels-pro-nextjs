@@ -23,6 +23,25 @@ export async function GET() {
   }
 }
 
+export async function GETBYID(id: string) {
+  try {
+    await connectToDatabase();
+    const videoById = await Video.findOne({ id: id });
+    if (!videoById) {
+      return NextResponse.json(null, { status: 200 });
+    }
+
+    return NextResponse.json(videoById, { status: 200 });
+  } catch (error) {
+    console.log("Error during fetching the videos", error);
+
+    return NextResponse.json(
+      { error: "Failed to fetch videos" },
+      { status: 200 }
+    );
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
